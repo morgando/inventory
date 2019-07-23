@@ -9,7 +9,38 @@ a {
 
 .inventory-container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: repeat(auto-fill, 120px);
 }
 
+.info-container>* {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+}
+
+.inventory-container * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.info-flex>* {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    flex-basis: 100%;
+}
+
+.category-tab {
+    cursor: pointer;
+}
+
+.button-container {
+
+    display: grid;
+
+    grid-template-columns: 1fr 3fr;
+
+    margin-bottom: 10px;
+
+}

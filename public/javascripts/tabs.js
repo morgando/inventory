@@ -1,10 +1,9 @@
-let name = document.querySelector('.item-name');
 
 let photo = document.querySelector('.item-photo');
 
-let description = document.querySelector('.item-description');
+let descriptionContainer = document.querySelector('#description-content');
 
-let quantity = document.querySelector('.item-quantity');
+let quantityContainer = document.querySelector('#quantity-content');
 
 let tabs = document.querySelectorAll('.category-tab');
 
@@ -12,15 +11,12 @@ tabs.forEach((tab) => {
     tab.addEventListener('click', (e) => {
 
         let data = JSON.parse(e.target.getAttribute('data'));
+        
+        descriptionContainer.textContent = data.description;
 
-
-        name.textContent = data.name;
+        quantityContainer.textContent = data.quantity;
 
         // load photo
-
-        description.textContent = data.description;
-
-        quantity.textContent = data.quantity + ' items in inventory'
 
     })
 })

@@ -1,19 +1,25 @@
 extends layout
 
 block content
-    h1= title
+    div.button-container
+        div.add-category add category
+        div.add-item add item
     div.inventory-container
         div.tab-container
             each category in categories
                 div.category-tab.unselected(data=JSON.stringify(category)) #{category.name}
         div.info-container
-            p.item-name name
 
-            div.item-photo
+            div.info-flex.item-description
+                p#description-label description
+                p#description-content
 
-            p.item-description description
 
-            p.item-quantity quantity
+            div.info-flex.item-quantity 
+                p#quantity-label quantity
+                p#quantity-content
+
+        div.photo-container
 block scripts
     script(src='javascripts/tabs.js')
 
