@@ -1,7 +1,11 @@
-let select2 = import select2;
+import $ from 'jquery';
+import 'select2';                       // globally assign select2 fn to $ element
+import 'select2/dist/css/select2.css';
 
-let categorySearch = document.querySelector('.js-example-basic-single');
-categorySearch.select2();
+
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
 
 let photo = document.querySelector('.item-photo');
 
