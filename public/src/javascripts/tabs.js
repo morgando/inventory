@@ -7,13 +7,13 @@ $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 
-let photo = document.querySelector('.item-photo');
+let photo = $('.item-photo');
 
-let descriptionContainer = document.querySelector('#description-content');
+let descriptionContainer = $('#description-content');
 
-let quantityContainer = document.querySelector('#quantity-content');
+let quantityContainer = $('#quantity-content');
 
-let tabs = document.querySelectorAll('.category-tab');
+let tabs = $('.category-tab');
 
 tabs.forEach((tab) => {
     tab.addEventListener('click', (e) => {
