@@ -1,9 +1,13 @@
 extends layout
 
 block content
-    select(class="js-example-basic-multiple" name="state")
-        option(value='misc') misc
-        option(value='csim') csim
+    div.search-container
+        label(for='category')
+            h2#search-label search by category 
+        select(class="js-example-basic-multiple" name="category")
+            option(value='misc') misc
+            option(value='csim') csim
+    div.search-results
     div.button-container
         div.add-category add category
         div.add-item add item

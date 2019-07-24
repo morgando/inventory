@@ -7,6 +7,10 @@ $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
 });
 
+$(".js-example-basic-multiple").select2({
+    width: 'resolve' // need to override the changed default
+});
+
 let photo = $('.item-photo');
 
 let descriptionContainer = $('#description-content');
@@ -20,8 +24,6 @@ tabs.each(function(idx) {
     $(this).on('click', function() {
 
         let data = JSON.parse(this.getAttribute('data'));
-
-        console.log(data.description);
         
         descriptionContainer.text(data.description);
 

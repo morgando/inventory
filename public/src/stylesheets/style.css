@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -47,4 +47,15 @@ a {
 
 .js-example-basic-multiple {
     width: 300px;
+    margin: 0 auto;
+}
+
+.search-container {
+    margin: 0 auto;
+    width: 50%;
+}
+
+#search-label {
+    display: inline-block;
+    margin-right: 10px;
 }
