@@ -4,7 +4,7 @@ import 'select2/dist/css/select2.css';
 
 
 $(document).ready(function() {
-    $('.js-example-basic-single').select2();
+    $('.js-example-basic-multiple').select2();
 });
 
 let photo = $('.item-photo');
@@ -13,18 +13,19 @@ let descriptionContainer = $('#description-content');
 
 let quantityContainer = $('#quantity-content');
 
-let tabs = $('.category-tab');
+let tabs = $('.category-tab');//document.querySelectorAll('.category-tab');
 
-tabs.forEach((tab) => {
-    tab.addEventListener('click', (e) => {
 
-        let data = JSON.parse(e.target.getAttribute('data'));
+tabs.each(function(idx) {
+    $(this).on('click', function() {
+
+        let data = JSON.parse(this.getAttribute('data'));
+
+        console.log(data.description);
         
-        descriptionContainer.textContent = data.description;
+        descriptionContainer.text(data.description);
 
-        quantityContainer.textContent = data.quantity;
+        quantityContainer.text(data.quantity);
 
-        // load photo
-
-    })
-})
+    });
+});
