@@ -1,6 +1,9 @@
 extends layout
 
 block content
+    select(class="js-example-basic-single" name="state")
+        option(value='misc') misc
+        option(value='csim') csim
     div.button-container
         div.add-category add category
         div.add-item add item
@@ -21,6 +24,8 @@ block content
 
         div.photo-container
 block scripts
-    script(src='javascripts/tabs.js')
+    script(src='jquery-3.4.1.min.js') 
+    script(src='main.js')
+
 
 

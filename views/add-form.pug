@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 add a new category
+    form(method='POST' action='/')
+        label(for='name') name: 
+        input(type='text' name='name')
+        label(for='description') description: 
+        input(type='text' name='description')
+        input(type='submit' value='submit')
+        

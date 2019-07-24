@@ -1,3 +1,7 @@
+let select2 = import select2;
+
+let categorySearch = document.querySelector('.js-example-basic-single');
+categorySearch.select2();
 
 let photo = document.querySelector('.item-photo');
 
