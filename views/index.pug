@@ -5,28 +5,9 @@ block content
         label(for='category')
             h2#search-label search by category 
         select(class="js-example-basic-multiple" name="category")
-            option(value='misc') misc
-            option(value='csim') csim
-    div.search-results
-    div.button-container
-        div.add-category add category
-        div.add-item add item
-    div.inventory-container
-        div.tab-container
             each category in categories
-                div.category-tab.unselected(data=JSON.stringify(category)) #{category.name}
-        div.info-container
-
-            div.info-flex.item-description
-                p#description-label description
-                p#description-content
-
-
-            div.info-flex.item-quantity 
-                p#quantity-label quantity
-                p#quantity-content
-
-        div.photo-container
+                option(value=category.id) #{category.name}
+    div.search-results
 block scripts
     script(src='dist/1.main.js')
     script(src='dist/main.js')
