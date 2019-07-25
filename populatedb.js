@@ -18,6 +18,8 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+
+
 var async = require('async')
 var Category = require('./models/category');
 var Item = require('./models/item');
@@ -46,13 +48,14 @@ function categoryCreate(name, description, cb) {
 function itemCreate(name, description, category, cb) {
   itemdetail = {
     name: name,
-    quantity: 0
+    quantity: 0,
+    category: category
   }
-  itemdetail.category = category ? category : miscellaneous;
+
   if(description!=false) itemdetail.description = description;
   let item = new Item(itemdetail)
 
-  category.save(function (err) {
+  item.save(function (err) {
     if (err) {
       cb(err, null)
       return;
@@ -174,7 +177,7 @@ function createItems(cb) {
 }
 
 function createItemInstances(cb) {
-      async.series([
+      async.parallel([
         function(callback) {
           itemInstanceCreate(items[0], callback);
         },
