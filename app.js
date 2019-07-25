@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 
@@ -11,6 +12,15 @@ var usersRouter = require('./routes/users');
 var addRouter = require('./routes/add')
 
 var app = express();
+
+
+// sets up database
+var mongoDB = 'mongodb+srv://user1:qkxQLdcrt4zhn2P9@cluster0-opzu1.mongodb.net/test?retryWrites=true&w=majority';
+
+
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
