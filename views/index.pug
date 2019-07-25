@@ -2,12 +2,18 @@ extends layout
 
 block content
     div.search-container
-        label(for='category')
-            h2#search-label search by category 
-        select(class="js-example-basic-multiple" name="category")
-            each category in categories
-                option(value=category.id) #{category.name}
+        form(method='GET' action='/')
+            label(for='category')
+                h2#search-label search by category 
+            select(class="js-example-basic-multiple" name="category")
+                if data.categories
+                    each category in data.categories
+                        option(value=category.id) #{category.name}
+            input(type='submit' value='search')
     div.search-results
+        if data.items
+            each item in data.items
+                p #{item.name}
 block scripts
     script(src='dist/1.main.js')
     script(src='dist/main.js')
