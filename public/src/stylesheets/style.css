@@ -60,6 +60,14 @@ a {
     margin-right: 10px;
 }
 
-.item-button {
-    
+a {
+    color: black;
+    text-decoration: none;
 }
+
+.item-holder {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
