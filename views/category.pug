@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+    div#back-to-search back
+    p #{data.items.length} items in category #{data.selected_category}
+    div.search-results
+        if items
+        each item in data.items
+            p(data=item class='item-button') #{item.name}
+block scripts
+    script(src='dist/1.main.js')
+    script(src='dist/main.js')

@@ -9,7 +9,7 @@ module.exports = {
       },
     ],
   },
-  entry: './public/src/javascripts/tabs.js',
+  entry: './public/src/javascripts/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public/dist')

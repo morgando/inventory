@@ -6,46 +6,93 @@ let async = require('async')
 exports.search_category = function(req, res) {
     async.series({
             categories: function(callback) {
-                console.log('inside category count')
+
                 Category.find({}, 'name id')
                 .exec(function (err, list_categories) {
-                    console.log('done with category count')
+
                     return callback(err, list_categories);
                 });
 
             },
             items: function(callback) {
-                console.log('inside item count')
-                console.log(req.query);
-                console.log(req.query.category);
-                if(req.query.category) {
-                    Item.find({category: req.query.category}, 'name')
-                    .exec(function (err, list_items) {
 
+                if(req.query.category) {
+                    Item.find({category: req.query.category}, 'name id')
+                    .exec(function (err, list_items) {
                         return callback(err, list_items);
                     }); 
                 } else {
-                    console.log('im here')
-                    return callback([]);
+
+                    return callback(null, []);
                 }                
             }
         }, 
         //callback
         function(err, results) {
-            console.log('hellloooo')
+
             if(err) {
                 console.log('there is error')
                 console.log(err);
             }
-            console.log('rendering now!')
-            console.log(results);
-            console.log(results.items == true);
+
             res.render('index', { data: results });
         }
     );
 
-    console.log('-_-')
 };
+
+exports.item_list = function(req, res) {
+    console.log(req.query.category)
+
+    category = JSON.parse(req.query.category);
+
+
+
+    async.parallel({
+        selected_category: function(callback) {
+            // Category.find({id: req.query.category}, 'name')
+            // .exec(function (err, category) {
+            //     return callback(err, category);
+
+
+            // });
+
+            
+            console.log(category.name);
+            return callback(null, category.name)
+        },
+        items: function(callback) {
+            console.log(category._id)
+            Item.find({category: category._id}, 'name id')
+            .exec(function (err, list_items) {
+                console.log(list_items)
+                return callback(err, list_items)
+            });
+        }
+    },
+    function(err, results) {
+        console.log(results);
+        if(err) {
+            console.log('error! 1! 1: ' + err);
+        }
+        res.render('category', {data: results});
+    });
+
+}
+
+// exports.category_list = function(req, res) {
+//     console.log('got here')
+//     Category.find({}, 'name id')
+//     .exec(function (err, list_categories) {
+//         if(err) {
+//             console.log(err);
+//             return;
+//         }
+//         res.render('category', {selected_category: req.query.category, items: list_items, categories: list_categories});
+//     })
+// }
+
+
 
 // exports.search_results = function(req, res) {
 //     Item.find({category: req.body.category}, 'name')
