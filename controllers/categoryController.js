@@ -42,7 +42,6 @@ exports.search_category = function(req, res) {
 };
 
 exports.item_list = function(req, res) {
-    console.log(req.query.category)
 
     category = JSON.parse(req.query.category);
 
@@ -63,7 +62,7 @@ exports.item_list = function(req, res) {
         },
         items: function(callback) {
             console.log(category._id)
-            Item.find({category: category._id}, 'name id')
+            Item.find({category: category._id}, 'name description id')
             .exec(function (err, list_items) {
                 console.log(list_items)
                 return callback(err, list_items)

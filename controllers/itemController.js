@@ -14,8 +14,15 @@ let Item = require('../models/item')
 
 exports.item_detail = function(req, res) {
 
-    let item = req.query.item;
+    Item.findOne({_id: req.query.item}, 'name description _id')
+    .exec(function (err, item_details) {
+        if(err) {
+            console.log('error ' + err);
+            return;
+        }
 
-    res.render('item', {item: item})
+
+        res.render('item', {item: item_details})
+    });
 
 }

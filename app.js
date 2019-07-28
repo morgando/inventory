@@ -10,6 +10,7 @@ var upload = multer({ dest: 'uploads/' });
 var indexRouter = require('./routes/index');
 var categoryRouter = require('./routes/category');
 var addRouter = require('./routes/add')
+var itemRouter = require('./routes/item')
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
+app.use('/item', itemRouter);
 app.use('/add', addRouter);
 
 // catch 404 and forward to error handler

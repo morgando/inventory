@@ -1,11 +1,10 @@
-extends layout.pug
+extends back-page
 
 block content
-    a(id='back-to-search' href='/') back
     p #{data.items.length} #{data.items.length === 1 ? 'item' : 'items'} in category #{data.selected_category.toLowerCase()}
         div.search-results
             if items
             each item in data.items
-                a(class='item-holder', href='/item/'+item) #{item.name}
+                a(class='item-holder', href='/item/?item='+(item._id)) #{item.name}
 block scripts
     script(src='../dist/main.js')

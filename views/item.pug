@@ -1,4 +1,7 @@
-extends layout
+extends back-page
 
 block content
-    p #{item.name}
+    div.item-details Name
+        p #{item.name}
+    div.item-details About
+        p #{item.description}
