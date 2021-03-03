@@ -22,7 +22,7 @@
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
     "nodemon": "^1.19.1",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "select2": "^4.0.8",
     "style-loader": "^0.23.1",
     "xmlhttprequest": "^1.8.0"
